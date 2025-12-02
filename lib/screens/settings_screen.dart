@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_app_bar.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -24,11 +25,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         actions: [
           TextButton(
-            child: const Text("Скасувати"),
             onPressed: () => Navigator.pop(context),
+            child: const Text("Скасувати"),
           ),
           TextButton(
-            child: const Text("Додати"),
             onPressed: () {
               if (_textController.text.isNotEmpty) {
                 setState(() {
@@ -38,6 +38,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Navigator.pop(context);
               }
             },
+            child: const Text("Додати"),
           ),
         ],
       ),
@@ -47,19 +48,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Налаштування"),
-      ),
+      appBar: const CustomAppBar(title: "Налаштування"),
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              "Звуки датчика",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+          const SizedBox(height: 16),
+          const Text(
+            "Звуки датчика",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-
           Expanded(
             child: ListView.builder(
               itemCount: sounds.length,
@@ -71,24 +67,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     value: sound,
                     groupValue: selectedSound,
                     onChanged: (value) {
-                      setState(() {
-                        selectedSound = value;
-                      });
+                      setState(() => selectedSound = value);
                     },
                   ),
                 );
               },
             ),
           ),
-
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16),
             child: ElevatedButton.icon(
               icon: const Icon(Icons.add),
               label: const Text("Додати звук"),
               onPressed: _addSound,
             ),
-          )
+          ),
         ],
       ),
     );

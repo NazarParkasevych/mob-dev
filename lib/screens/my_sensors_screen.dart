@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_app_bar.dart';
 
 class MySensorsScreen extends StatelessWidget {
   const MySensorsScreen({super.key});
@@ -8,7 +9,7 @@ class MySensorsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Мої датчики")),
+      appBar: const CustomAppBar(title: "Мої датчики"),
       body: ListView.builder(
         itemCount: sensors.length,
         itemBuilder: (context, index) {
@@ -16,9 +17,7 @@ class MySensorsScreen extends StatelessWidget {
             leading: const Icon(Icons.sensors),
             title: Text(sensors[index]),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-            onTap: () {
-              // TODO: можна додати деталі датчика або управління
-            },
+            onTap: () {},
           );
         },
       ),

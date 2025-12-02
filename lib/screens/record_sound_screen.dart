@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_app_bar.dart';
 
 class RecordSoundScreen extends StatelessWidget {
   const RecordSoundScreen({super.key});
@@ -6,12 +7,10 @@ class RecordSoundScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Записати звук")),
+      appBar: const CustomAppBar(title: "Записати звук"),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {
-            // TODO: логіка запису звуку
-          },
+          onPressed: () {},
           child: const Text("Почати запис"),
         ),
       ),

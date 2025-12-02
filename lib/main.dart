@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+// Screens
 import 'screens/home_screen.dart';
 import 'screens/connect_sensor_screen.dart';
 import 'screens/record_sound_screen.dart';
@@ -15,14 +17,21 @@ class SensorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Sensor Audio App",
-      theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
+      title: "Sensyth",
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+
+      // Головний маршрут
       initialRoute: '/',
+
+      // Маршрути програми
       routes: {
         '/': (context) => const HomeScreen(),
-        '/settings': (context) => const SettingsScreen(),
         '/connect_sensor': (context) => const ConnectSensorScreen(),
         '/record_sound': (context) => const RecordSoundScreen(),
+        '/settings': (context) => const SettingsScreen(),
         '/my_sensors': (context) => const MySensorsScreen(),
       },
     );
